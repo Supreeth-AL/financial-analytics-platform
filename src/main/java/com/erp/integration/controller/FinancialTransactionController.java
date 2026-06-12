@@ -3,6 +3,8 @@ package com.erp.integration.controller;
 import com.erp.integration.entity.FinancialTransaction;
 import com.erp.integration.service.FinancialTransactionService;
 
+import io.swagger.v3.oas.annotations.Operation;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,6 +21,7 @@ public class FinancialTransactionController {
         this.service = service;
     }
 
+    @Operation(summary = "Create Financial Transaction")
     @PostMapping
     public FinancialTransaction createTransaction(
             @RequestBody FinancialTransaction transaction) {
@@ -26,6 +29,7 @@ public class FinancialTransactionController {
         return service.saveTransaction(transaction);
     }
 
+    @Operation(summary = "Get All Financial Transactions")
     @GetMapping
     public List<FinancialTransaction> getTransactions() {
 
