@@ -16,6 +16,7 @@ public class AnalyticsPlatformController {
                 "Analytics Platform Received: "
                         + dto.getTxnId());
 
-        return "Analytics Data Received Successfully";
+        throw new RuntimeException(
+                "Analytics Platform Down");
     }
 }

@@ -4,15 +4,30 @@ import com.erp.integration.dto.AnalyticsTransactionDTO;
 import com.erp.integration.entity.FinancialTransaction;
 import com.erp.integration.mapper.TransactionMapper;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 @Service
 public class TransformationService {
 
-    public AnalyticsTransactionDTO transform(FinancialTransaction transaction) {
+    private static final Logger logger = LoggerFactory.getLogger(
+            TransformationService.class);
 
-        return TransactionMapper
-                .convertToAnalyticsDTO(
-                        transaction);
+    public AnalyticsTransactionDTO transform(
+            FinancialTransaction transaction) {
+
+        logger.info(
+                "Transforming transaction {}",
+                transaction.getTransactionId());
+
+        AnalyticsTransactionDTO dto = TransactionMapper.convertToAnalyticsDTO(
+                transaction);
+
+        logger.info(
+                "Transformation completed for transaction {}",
+                transaction.getTransactionId());
+
+        return dto;
     }
 }

@@ -12,7 +12,7 @@ public class SAPMockController {
 
         FinancialTransaction transaction = new FinancialTransaction();
 
-        transaction.setTransactionId("SAP1001");
+        transaction.setTransactionId("SAP1002");
         transaction.setInvoiceNumber("INV7001");
         transaction.setCustomerName("Infosys");
         transaction.setAmount(250000.0);
